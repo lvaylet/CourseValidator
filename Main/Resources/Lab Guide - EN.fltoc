@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultToc
+  Version="1">
+  <TocEntry
+    Title="Copyright"
+    Link="/Content/Print Only Topics/Copyright.htm"
+    BreakType="pageLayout"
+    StartSection="false"
+    PageLayout="/Content/Resources/PageLayouts/8_5X11/Copyright.flpgl"
+    PageNumberReset="continue"
+    SectionNumberReset="continue"
+    VolumeNumberReset="same"
+    ChapterNumberReset="continue" />
+  <TocEntry
+    Title="Title"
+    Link="/Content/Print Only Topics/Title.htm"
+    BreakType="pageLayout"
+    StartSection="false"
+    PageLayout="/Content/Resources/PageLayouts/8_5X11/Title.flpgl"
+    PageNumberReset="reset"
+    PageNumber="1"
+    SectionNumberReset="continue"
+    VolumeNumberReset="same"
+    ChapterNumberReset="continue"
+    PageType="normal" />
+  <TocEntry
+    Title="Welcome"
+    Link="/Content/Print Only Topics/Welcome.htm"
+    BreakType="pageLayout"
+    StartSection="false"
+    PageLayout="/Content/Resources/PageLayouts/8_5X11/Welcome.flpgl"
+    SectionNumberReset="continue"
+    VolumeNumberReset="same"
+    ChapterNumberReset="continue" />
+  <TocEntry
+    Title="TOC"
+    Link="/Content/Print Only Topics/TOC.htm"
+    BreakType="pageLayout"
+    StartSection="false"
+    PageLayout="/Content/Resources/PageLayouts/8_5X11/TOC.flpgl"
+    PageNumberReset="continue"
+    SectionNumberReset="continue"
+    VolumeNumberReset="same"
+    CahpterNumberReset="continue"
+    PageType="firstright" />
+  <TocEntry
+    Title="Getting Started"
+    BreakType="chapter"
+    StartSection="false"
+    PageNumberReset="continue"
+    Link="/Content/EN/Getting_Started/Description.htm"
+    PageType="firstright"
+    PageLayout="/Content/Resources/PageLayouts/8_5X11/Chapters.flpgl"
+    SectionNumberReset="continue"
+    VolumeNumberReset="same"
+    ChapterNumberReset="reset"
+    ChapterNumber="1">
+    <TocEntry
+      Title="Overview"
+      Link="/Content/EN/Getting_Started/Overview.htm" />
+    <TocEntry
+      Title="Starting Talend Studio"
+      Link="/Content/EN/Getting_Started/Starting_Talend_Studio.htm" />
+    <TocEntry
+      Title="Settings_examples"
+      Link="/Content/EN/Getting_Started/Settings.htm" />
+    <TocEntry
+      Title="First_Job"
+      Link="/Content/EN/Getting_Started/First_Job.htm" />
+    <TocEntry
+      Title="Create Metadata"
+      Link="/Content/EN/Getting_Started/Create Metadata.htm" />
+    <TocEntry
+      Title="Using Metadata"
+      Link="/Content/EN/Getting_Started/Using Metadata.htm" />
+    <TocEntry
+      Title="Database Connection"
+      Link="/Content/EN/Getting_Started/Database Connection.htm" />
+    <TocEntry
+      Title="Database Output"
+      Link="/Content/EN/Getting_Started/Database Output.htm" />
+    <TocEntry
+      Title="Alphabetic Order"
+      Link="/Content/EN/Getting_Started/Alphabetic Order.htm" />
+    <TocEntry
+      Title="Processing data with tMap"
+      Link="/Content/EN/Getting_Started/Processing data with tMap.htm" />
+    <TocEntry
+      Title="Wrap-Up"
+      Link="/Content/EN/Getting_Started/Wrap-Up.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="Introduction to Talend Studio"
+    BreakType="chapter"
+    StartSection="false"
+    PageNumberReset="continue"
+    Link="/Content/EN/Introduction_to_Talend_Studio/Descriptio.htm"
+    PageType="firstright"
+    PageLayout="/Content/Resources/PageLayouts/8_5X11/Chapters.flpgl"
+    SectionNumberReset="continue"
+    VolumeNumberReset="same"
+    ChapterNumberReset="continue">
+    <TocEntry
+      Title="Overview"
+      Link="/Content/EN/Introduction_to_Talend_Studio/Overview.htm" />
+    <TocEntry
+      Title="Creating a Job"
+      Link="/Content/EN/Introduction_to_Talend_Studio/Creating_a_job.htm" />
+    <TocEntry
+      Title="Reading Input"
+      Link="/Content/EN/Introduction_to_Talend_Studio/Reading_a_File.htm" />
+    <TocEntry
+      Title="Transforming Data"
+      Link="/Content/EN/Introduction_to_Talend_Studio/Transforming_Data.htm" />
+    <TocEntry
+      Title="Running the Job"
+      Link="/Content/EN/Introduction_to_Talend_Studio/Writing_Output.htm" />
+    <TocEntry
+      Title="Combining Columns"
+      Link="/Content/EN/Introduction_to_Talend_Studio/Combining_Columns.htm" />
+    <TocEntry
+      Title="Exercises"
+      Link="/Content/EN/Introduction_to_Talend_Studio/Exercises.htm" />
+    <TocEntry
+      Title="Solutions"
+      Link="/Content/EN/Introduction_to_Talend_Studio/Solutions.htm" />
+    <TocEntry
+      Title="Wrap-Up"
+      Link="/Content/EN/Introduction_to_Talend_Studio/Wrap-Up.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="Joining Data Sources"
+    BreakType="chapter"
+    StartSection="false"
+    PageNumberReset="continue"
+    Link="/Content/EN/Joining_Data_Sources/Description.htm"
+    PageType="firstright"
+    PageLayout="/Content/Resources/PageLayouts/8_5X11/Chapters.flpgl"
+    SectionNumberReset="continue"
+    VolumeNumberReset="same"
+    ChapterNumberReset="continue">
+    <TocEntry
+      Title="Duplicating a Job"
+      Link="/Content/EN/Joining_Data_Sources/Duplicating_a_Job.htm" />
+    <TocEntry
+      Title="Overview"
+      Link="/Content/EN/Joining_Data_Sources/Overview.htm" />
+    <TocEntry
+      Title="Creating Metadata"
+      Link="/Content/EN/Joining_Data_Sources/CreatingRepositoryItem.htm" />
+    <TocEntry
+      Title="Joining Data Sources"
+      Link="/Content/EN/Joining_Data_Sources/Joining_Data_Sources.htm" />
+    <TocEntry
+      Title="Capturing Rejects"
+      Link="/Content/EN/Joining_Data_Sources/Capturing_Rejects.htm" />
+    <TocEntry
+      Title="Correcting the Lookup"
+      Link="/Content/EN/Joining_Data_Sources/Correcting_the_Lookup.htm" />
+    <TocEntry
+      Title="Exercises"
+      Link="/Content/EN/Joining_Data_Sources/ExercisesJ.htm" />
+    <TocEntry
+      Title="Solutions"
+      Link="/Content/EN/Joining_Data_Sources/Solutions.htm" />
+    <TocEntry
+      Title="Wrap-Up"
+      Link="/Content/EN/Joining_Data_Sources/Wrap-Up.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="Filtering Data"
+    BreakType="chapter"
+    StartSection="false"
+    PageNumberReset="continue"
+    Link="/Content/EN/Filtering_Data/Description.htm"
+    PageType="firstright"
+    PageLayout="/Content/Resources/PageLayouts/8_5X11/Chapters.flpgl"
+    SectionNumberReset="continue"
+    VolumeNumberReset="same"
+    ChapterNumberReset="continue">
+    <TocEntry
+      Title="Overview"
+      Link="/Content/EN/Filtering_Data/Overview.htm" />
+    <TocEntry
+      Title="Filter_Output_Data"
+      Link="/Content/EN/Filtering_Data/Filter_Output_Data.htm" />
+    <TocEntry
+      Title="Using_tMap_Multiple_Filters"
+      Link="/Content/EN/Filtering_Data/Using_tMap_Multiple_Filters.htm" />
+    <TocEntry
+      Title="Wrap-Up"
+      Link="/Content/EN/Filtering_Data/Wrap-Up.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="Preparing for Deployment"
+    BreakType="chapter"
+    StartSection="false"
+    PageNumberReset="continue"
+    Link="/Content/EN/Preparing_for_Deployment/Description.htm"
+    PageType="firstright"
+    PageLayout="/Content/Resources/PageLayouts/8_5X11/Chapters.flpgl"
+    SectionNumberReset="continue"
+    VolumeNumberReset="same"
+    ChapterNumberReset="continue">
+    <TocEntry
+      Title="Overview"
+      Link="/Content/EN/Preparing_for_Deployment/Overview.htm" />
+    <TocEntry
+      Title="Using Context Variables"
+      Link="/Content/EN/Preparing_for_Deployment/Using_Context_Variables.htm" />
+    <TocEntry
+      Title="Using Repository Context Variables"
+      Link="/Content/EN/Preparing_for_Deployment/Using_Repository_Context_Variables.htm" />
+    <TocEntry
+      Title="Handling Errors"
+      Link="/Content/EN/Preparing_for_Deployment/Handling_Errors.htm" />
+    <TocEntry
+      Title="Exercises"
+      Link="/Content/EN/Preparing_for_Deployment/Exercises.htm" />
+    <TocEntry
+      Title="Solutions"
+      Link="/Content/EN/Preparing_for_Deployment/Solutions.htm" />
+    <TocEntry
+      Title="Wrap-Up"
+      Link="/Content/EN/Preparing_for_Deployment/Wrap-Up.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="Setting Up Sales Files"
+    BreakType="chapter"
+    StartSection="false"
+    PageNumberReset="continue"
+    Link="/Content/EN/Setting_Up_Sales_Files/Overview.htm"
+    PageType="firstright"
+    PageLayout="/Content/Resources/PageLayouts/8_5X11/Chapters.flpgl"
+    SectionNumberReset="continue"
+    VolumeNumberReset="same"
+    ChapterNumberReset="continue">
+    <TocEntry
+      Title="Overview"
+      Link="/Content/EN/Setting_Up_Sales_Files/Overview.htm" />
+    <TocEntry
+      Title="Setting up Sales Files_for_database_exercise"
+      Link="/Content/EN/Setting_Up_Sales_Files/Setting_up_Sales_Files.htm" />
+    <TocEntry
+      Title="Wrap-Up"
+      Link="/Content/EN/Setting_Up_Sales_Files/Wrap-Up.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="Working with Databases"
+    BreakType="chapter"
+    StartSection="false"
+    PageNumberReset="continue"
+    Link="/Content/EN/Working_with_Databases/Description.htm"
+    PageType="firstright"
+    PageLayout="/Content/Resources/PageLayouts/8_5X11/Chapters.flpgl"
+    SectionNumberReset="continue"
+    VolumeNumberReset="same"
+    ChapterNumberReset="continue">
+    <TocEntry
+      Title="Overview"
+      Link="/Content/EN/Working_with_Databases/Overview.htm" />
+    <TocEntry
+      Title="Creating Customer Metadata"
+      Link="/Content/EN/Working_with_Databases/Creating_Customer_Metadata.htm" />
+    <TocEntry
+      Title="Creating Database Metadata"
+      Link="/Content/EN/Working_with_Databases/Creating_Database_Metadata.htm" />
+    <TocEntry
+      Title="Creating_the_Customer_Table"
+      Link="/Content/EN/Working_with_Databases/Creating_a_Database_Table.htm" />
+    <TocEntry
+      Title="Creating _the_Product_Table"
+      Link="/Content/EN/Working_with_Databases/Creating_Second_Table.htm" />
+    <TocEntry
+      Title="Setting Up Shop Tables"
+      Link="/Content/EN/Working_with_Databases/Setting_Up_Shop_Tables.htm" />
+    <TocEntry
+      Title="Joining_the_Data"
+      Link="/Content/EN/Working_with_Databases/Reading_from_a_Database.htm" />
+    <TocEntry
+      Title="Finalizing_the_Job"
+      Link="/Content/EN/Working_with_Databases/Performing_Calculations.htm" />
+    <TocEntry
+      Title="Wrap-Up"
+      Link="/Content/EN/Working_with_Databases/Wrap-Up.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="Creating Master Jobs"
+    BreakType="chapter"
+    StartSection="false"
+    PageNumberReset="continue"
+    Link="/Content/EN/Creating_Master_Jobs/Description.htm"
+    PageType="firstright"
+    PageLayout="/Content/Resources/PageLayouts/8_5X11/Chapters.flpgl"
+    SectionNumberReset="continue"
+    VolumeNumberReset="same"
+    ChapterNumberReset="continue">
+    <TocEntry
+      Title="Overview"
+      Link="/Content/EN/Creating_Master_Jobs/Overview.htm" />
+    <TocEntry
+      Title="Creating a Master Job"
+      Link="/Content/EN/Creating_Master_Jobs/Creating_a_Master_Job.htm" />
+    <TocEntry
+      Title="Exercises"
+      Link="/Content/EN/Creating_Master_Jobs/Exercises.htm" />
+    <TocEntry
+      Title="Solutions"
+      Link="/Content/EN/Creating_Master_Jobs/Solutions.htm" />
+    <TocEntry
+      Title="Wrap-Up"
+      Link="/Content/EN/Creating_Master_Jobs/Wrap-Up.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="Working with Web Services"
+    BreakType="chapter"
+    StartSection="false"
+    PageNumberReset="continue"
+    Link="/Content/EN/Working_with_Web_Services/Description.htm"
+    PageType="firstright"
+    PageLayout="/Content/Resources/PageLayouts/8_5X11/Chapters.flpgl"
+    SectionNumberReset="continue"
+    VolumeNumberReset="same"
+    ChapterNumberReset="continue">
+    <TocEntry
+      Title="Overview"
+      Link="/Content/EN/Working_with_Web_Services/Overview.htm" />
+    <TocEntry
+      Title="Working with Web Services"
+      Link="/Content/EN/Working_with_Web_Services/Working_with_Web_Services.htm" />
+    <TocEntry
+      Title="Accessing a Web Service"
+      Link="/Content/EN/Working_with_Web_Services/Accessing_a_Web_Service.htm" />
+    <TocEntry
+      Title="Detailed_Output"
+      Link="/Content/EN/Working_with_Web_Services/Detailed_Output.htm" />
+    <TocEntry
+      Title="Documenting the Job"
+      Link="/Content/EN/Working_with_Web_Services/Documenting_the_Job.htm" />
+    <TocEntry
+      Title="Wrap-Up"
+      Link="/Content/EN/Working_with_Web_Services/Wrap-Up.htm"></TocEntry>
+  </TocEntry>
+  <TocEntry
+    Title="Running Jobs Standalone"
+    BreakType="chapter"
+    StartSection="false"
+    PageNumberReset="continue"
+    Link="/Content/EN/Running_Jobs_Standalone/Exercises .htm"
+    PageType="firstright"
+    PageLayout="/Content/Resources/PageLayouts/8_5X11/Chapters.flpgl"
+    SectionNumberReset="continue"
+    VolumeNumberReset="same"
+    ChapterNumberReset="continue">
+    <TocEntry
+      Title="Overview"
+      Link="/Content/EN/Running_Jobs_Standalone/Overview.htm" />
+    <TocEntry
+      Title="Running Jobs Standalone"
+      Link="/Content/EN/Running_Jobs_Standalone/Overview.htm" />
+    <TocEntry
+      Title="Building a Job"
+      Link="/Content/EN/Running_Jobs_Standalone/Building_a_Job.htm" />
+    <TocEntry
+      Title="Modifying the Job"
+      Link="/Content/EN/Running_Jobs_Standalone/Modifying_the_Job.htm" />
+    <TocEntry
+      Title="Exercises"
+      Link="/Content/EN/Running_Jobs_Standalone/Exercises.htm" />
+    <TocEntry
+      Title="Solutions"
+      Link="/Content/EN/Running_Jobs_Standalone/Solutions.htm" />
+    <TocEntry
+      Title="Wrap-Up"
+      Link="/Content/EN/Running_Jobs_Standalone/Wrap-Up.htm"></TocEntry>
+  </TocEntry>
+  <TocEntry
+    Title="Building Business Models"
+    BreakType="chapter"
+    StartSection="false"
+    PageNumberReset="continue"
+    Link="/Content/EN/Building_Business_Models/Description.htm"
+    PageType="firstright"
+    PageLayout="/Content/Resources/PageLayouts/8_5X11/Chapters.flpgl"
+    SectionNumberReset="continue"
+    VolumeNumberReset="same"
+    ChapterNumberReset="continue">
+    <TocEntry
+      Title="Overview"
+      Link="/Content/EN/Building_Business_Models/Overview.htm" />
+    <TocEntry
+      Title="Building a Business Model"
+      Link="/Content/EN/Building_Business_Models/Building_a_Business_Model.htm" />
+    <TocEntry
+      Title="Updating the Business Model"
+      Link="/Content/EN/Building_Business_Models/Updating_the_Business_Model.htm" />
+    <TocEntry
+      Title="Exercises"
+      Link="/Content/EN/Building_Business_Models/Exercises.htm" />
+    <TocEntry
+      Title="Solutions"
+      Link="/Content/EN/Building_Business_Models/Solutions.htm" />
+    <TocEntry
+      Title="Wrap-Up"
+      Link="/Content/EN/Building_Business_Models/Wrap-Up.htm" />
+  </TocEntry>
+</CatapultToc>
