@@ -19,7 +19,7 @@ namespace CourseValidator
                 catch (NullReferenceException e)
                 {
                     // The requested Attribute does not exist
-                    return "";
+                    return "<Missing>";
                 }
                     
             }

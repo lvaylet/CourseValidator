@@ -2,6 +2,18 @@
 <CatapultToc
   Version="1">
   <TocEntry
+    Title="Title"
+    Link="/Content/Print Only Topics/Title.htm"
+    BreakType="pageLayout"
+    StartSection="false"
+    PageLayout="/Content/Resources/PageLayouts/8_5X11/Title.flpgl"
+    PageNumberReset="reset"
+    PageNumber="0"
+    SectionNumberReset="continue"
+    VolumeNumberReset="same"
+    ChapterNumberReset="continue"
+    PageType="normal" />
+  <TocEntry
     Title="Copyright"
     Link="/Content/Print Only Topics/Copyright.htm"
     BreakType="pageLayout"
@@ -10,19 +22,7 @@
     PageNumberReset="continue"
     SectionNumberReset="continue"
     VolumeNumberReset="same"
-    ChapterNumberReset="continue" />
-  <TocEntry
-    Title="Title"
-    Link="/Content/Print Only Topics/Title.htm"
-    BreakType="pageLayout"
-    StartSection="false"
-    PageLayout="/Content/Resources/PageLayouts/8_5X11/Title.flpgl"
-    PageNumberReset="reset"
-    PageNumber="1"
-    SectionNumberReset="continue"
-    VolumeNumberReset="same"
-    ChapterNumberReset="continue"
-    PageType="normal" />
+    CahpterNumberReset="continue" />
   <TocEntry
     Title="Welcome"
     Link="/Content/Print Only Topics/Welcome.htm"
@@ -36,12 +36,12 @@
     Title="TOC"
     Link="/Content/Print Only Topics/TOC.htm"
     BreakType="pageLayout"
-    StartSection="false"
+    StartSection="true"
     PageLayout="/Content/Resources/PageLayouts/8_5X11/TOC.flpgl"
     PageNumberReset="continue"
-    SectionNumberReset="continue"
+    SectionNumberReset="same"
     VolumeNumberReset="same"
-    CahpterNumberReset="continue"
+    ChapterNumberReset="continue"
     PageType="firstright" />
   <TocEntry
     Title="Getting Started"
