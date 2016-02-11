@@ -9,6 +9,7 @@ namespace CourseValidator
     {
         static void Main(string[] args)
         {
+            // Create a Course from a Table of Contents file (*.fltoc)
             Course course = new Course(Properties.Resources.Lab_Guide_EN);
 
             // Some assertions about the Course
@@ -17,24 +18,14 @@ namespace CourseValidator
             Debug.Assert(course.Toc.Books[0].Topics.Count == 11, "First Book (i.e. Lab) should have 11 Topics");
             Debug.Assert(course.Toc.Books[0].Books.Count == 0, "First Book (i.e. Lab) should have no nested Books (i.e. no nested Labs)");
 
-            //Debug.Listeners.Add(new TextWriterTraceListener(Console.Out));
-            //Debug.AutoFlush = true;
-            //Debug.Indent();
-            //Debug.WriteLine("Entering Main");
-            //Console.WriteLine("Hello World.");
-            //Debug.WriteLine("Exiting Main");
-            //Debug.Unindent();
-
+            // Reset Console textcolor to white
             Console.ForegroundColor = ConsoleColor.White;
-
-            //var BadBookSpecification = Specification.Not(Specification.And(LinksToDescriptionSpecification, FirstTopicIsOverviewSpecification, LastTopicIsWrapUpSpecification));
 
             Console.WriteLine("===============================================================================");
             Console.WriteLine("-= !! Bad TOCs !! =-");
             
             // Rules for Table of Contents
             List<PredicateSpecification<TableOfContents>> TocRules = new List<PredicateSpecification<TableOfContents>>();
-            
             TocRules.Add(new PredicateSpecification<TableOfContents>(
                 (t) => { return t.Topics[0]; },
                 new TupleList<string, Func<string, string, bool>, string> {
@@ -61,11 +52,6 @@ namespace CourseValidator
                 }
             }
 
-            // Bad Books: 
-            //  - do not link to a Description.htm Topic,
-            //  - or their first Topic is not an Overview,
-            //  - or their last Topic is not a Wrap-Up
-            // According to De Morgan's laws, "(not A) or (not B)" is the same as "not (A and B)"
             Console.WriteLine("===============================================================================");
             Console.WriteLine("-= !! Bad Books !! =-");
 
@@ -112,10 +98,22 @@ namespace CourseValidator
             Console.WriteLine(rule.ErrorMessage);
 
             Console.WriteLine("Expected: ");
-            Console.WriteLine("  " + string.Join(Environment.NewLine + "  ", rule.ExpectedValues.Select(ev => ev.Item1 + '=' + ev.Item3)));
+            Console.WriteLine("  " + string.Join(Environment.NewLine + "  ", rule.ExpectedValues.Select(ev => ev.Item1 + " = " + ev.Item3)));
 
             Console.WriteLine("Got: ");
-            Console.WriteLine("  " + string.Join(Environment.NewLine + "  ", rule.ExpectedValues.Select(ev => ev.Item1 + '=' + rule.GetTocEntryUnderTest.Invoke(objectUnderTest)[ev.Item1])));
+            Console.WriteLine("  " + string.Join(Environment.NewLine + "  ", rule.ExpectedValues.Select(ev => ev.Item1 + " = " + rule.GetTocEntryUnderTest.Invoke(objectUnderTest)[ev.Item1])));
         }
     }
 }
+
+//Debug.Listeners.Add(new TextWriterTraceListener(Console.Out));
+//Debug.AutoFlush = true;
+//Debug.Indent();
+//Debug.WriteLine("Entering Main");
+//Console.WriteLine("Hello World.");
+//Debug.WriteLine("Exiting Main");
+//Debug.Unindent();
+
+//var BadBookSpecification = Specification.Not(Specification.And(LinksToDescriptionSpecification, FirstTopicIsOverviewSpecification, LastTopicIsWrapUpSpecification));
+
+// According to De Morgan's laws, "(not A) or (not B)" is the same as "not (A and B)"
