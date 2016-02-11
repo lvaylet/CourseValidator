@@ -12,6 +12,11 @@ namespace CourseValidator
         {
         }
 
+        public override void DisplayDebugInformation(T instance)
+        {
+            throw new NotImplementedException();
+        }
+
         public override bool IsSatisfiedBy(T item)
         {
             return true;

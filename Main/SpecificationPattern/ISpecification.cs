@@ -8,6 +8,7 @@ namespace CourseValidator
 {
     public interface ISpecification<T>
     {
-        bool IsSatisfiedBy(T item);
+        bool IsSatisfiedBy(T instance);
+        void DisplayDebugInformation(T instance);
     }
 }

@@ -6,7 +6,8 @@ namespace CourseValidator
 {
     public abstract class Specification<T> : ISpecification<T>
     {
-        public abstract bool IsSatisfiedBy(T item);
+        public abstract bool IsSatisfiedBy(T instance);
+        public abstract void DisplayDebugInformation(T instance);
 
         public static Specification<T> operator &(Specification<T> left, Specification<T> right)
         {
@@ -64,6 +65,11 @@ namespace CourseValidator
         {
         }
 
+        public override void DisplayDebugInformation(T instance)
+        {
+            throw new NotImplementedException();
+        }
+
         public override bool IsSatisfiedBy(T item)
         {
             return Specifications.All((s) => s.IsSatisfiedBy(item));
@@ -75,6 +81,11 @@ namespace CourseValidator
         public OrSpecification(params ISpecification<T>[] specifications)
             : base(specifications)
         {
+        }
+
+        public override void DisplayDebugInformation(T instance)
+        {
+            throw new NotImplementedException();
         }
 
         public override bool IsSatisfiedBy(T item)
@@ -89,6 +100,11 @@ namespace CourseValidator
         {
             if (specification == null) { throw new ArgumentNullException("specification"); }
             this.specification = specification;
+        }
+
+        public override void DisplayDebugInformation(T instance)
+        {
+            throw new NotImplementedException();
         }
 
         public override bool IsSatisfiedBy(T item)

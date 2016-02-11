@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 
 // TODO Add a different kind of rule, based on a simple predicate, for enforcing the number of Topics in a TOC
-
+// TODO Integrate DisplayDebugInformation in the Specification?
 namespace CourseValidator
 {
     class Program
@@ -12,7 +12,8 @@ namespace CourseValidator
         static void Main(string[] args)
         {
             // Create a Course from the provided or a local Table of Contents file (*.fltoc)
-            Course course = new Course(args.Length == 1 ? args[0] : Properties.Resources.Lab_Guide_EN);
+            //Course course = new Course(args.Length == 1 ? args[0] : Properties.Resources.Lab_Guide_EN);
+            Course course = new Course(Properties.Resources.Lab_Guide_EN);
 
             // Some assertions about this specific Course
             //Debug.Assert(course.Toc.Topics.Count == 4, "TOC should have 4 top-level Topics.");
@@ -22,10 +23,10 @@ namespace CourseValidator
 
             // Reset Console textcolor to white
             //Console.ForegroundColor = ConsoleColor.White;
-            
+
             // Rules for Table of Contents
-            List<PredicateSpecification<TableOfContents>> TocRules = new List<PredicateSpecification<TableOfContents>>();
-            TocRules.Add(new PredicateSpecification<TableOfContents>(
+            List<Specification<TableOfContents>> TocRules = new List<Specification<TableOfContents>>();
+            TocRules.Add(new ByAttributesSpecification<TableOfContents>(
                 (t) => { return t.Topics[0]; },
                 new TupleList<string, Func<string, string, bool>, string> {
                     { "Title", string.Equals, "Title" },
@@ -41,7 +42,7 @@ namespace CourseValidator
                     { "PageType", string.Equals, "normal" }
                 },
                 "The first Topic of a TOC should be a properly configured Title page."));
-            TocRules.Add(new PredicateSpecification<TableOfContents>(
+            TocRules.Add(new ByAttributesSpecification<TableOfContents>(
                 (t) => { return t.Topics[1]; },
                 new TupleList<string, Func<string, string, bool>, string> {
                     { "Title", string.Equals, "Copyright" },
@@ -55,7 +56,7 @@ namespace CourseValidator
                     { "ChapterNumberReset", string.Equals, "continue" },
                 },
                 "The second Topic of a TOC should be a properly configured Copyright page."));
-            TocRules.Add(new PredicateSpecification<TableOfContents>(
+            TocRules.Add(new ByAttributesSpecification<TableOfContents>(
                 (t) => { return t.Topics[2]; },
                 new TupleList<string, Func<string, string, bool>, string> {
                     { "Title", string.Equals, "Welcome" },
@@ -68,7 +69,7 @@ namespace CourseValidator
                     { "ChapterNumberReset", string.Equals, "continue" },
                 },
                 "The third Topic of a TOC should be a properly configured Welcome page."));
-            TocRules.Add(new PredicateSpecification<TableOfContents>(
+            TocRules.Add(new ByAttributesSpecification<TableOfContents>(
                 (t) => { return t.Topics[3]; },
                 new TupleList<string, Func<string, string, bool>, string> {
                     { "Title", string.Equals, "TOC" },
@@ -89,26 +90,26 @@ namespace CourseValidator
             {
                 if (!r.IsSatisfiedBy(course.Toc))
                 {
-                    DisplayDebugInformation(r, course.Toc);
+                    r.DisplayDebugInformation(course.Toc);
                 }
             }
 
             // Rules for Books
-            List<PredicateSpecification<Book>> BookRules = new List<PredicateSpecification<Book>>();
-            BookRules.Add(new PredicateSpecification<Book>(
+            List<ByAttributesSpecification<Book>> BookRules = new List<ByAttributesSpecification<Book>>();
+            BookRules.Add(new ByAttributesSpecification<Book>(
                 (b) => { return b; },
                 new TupleList<string, Func<string, string, bool>, string> {
                     { "Link", (string attribute, string value) => attribute.EndsWith(value), "/Description.htm" }
                 },
                 "A Book should link a to properly configured Description.htm Topic."));
-            BookRules.Add(new PredicateSpecification<Book>(
+            BookRules.Add(new ByAttributesSpecification<Book>(
                 (b) => { return b.Topics.First(); },
                 new TupleList<string, Func<string, string, bool>, string> {
                     { "Title", string.Equals, "Overview" },
                     { "Link", (string attribute, string value) => attribute.EndsWith(value), "/Overview.htm" }
                 },
                 "The first Topic of each Lab should be a properly configured Overview."));
-            BookRules.Add(new PredicateSpecification<Book>(
+            BookRules.Add(new ByAttributesSpecification<Book>(
                 (b) => { return b.Topics.Last(); },
                 new TupleList<string, Func<string, string, bool>, string> {
                     { "Title", string.Equals, "Wrap-Up" },
@@ -122,27 +123,11 @@ namespace CourseValidator
                 var badBooksForCurrentRule = course.Toc.Books.FindAll(item => !r.IsSatisfiedBy(item)); // Use Specification.Not ?
                 foreach (var b in badBooksForCurrentRule)
                 {
-                    DisplayDebugInformation(r, b);
+                    r.DisplayDebugInformation(b);
                 }
             }
 
-            // Console.ReadLine();
-        }
-
-        private static void DisplayDebugInformation<T>(PredicateSpecification<T> rule, T objectUnderTest)
-        {
-            Console.WriteLine("-------------------------------------------------------------------------------");
-
-            Console.WriteLine(rule.ErrorMessage);
-
-            // Only display the attributes values that differ
-            var attributesThatDiffer = rule.ExpectedValues.FindAll(ev => rule.GetTocEntryUnderTest.Invoke(objectUnderTest)[ev.Item1] != ev.Item3);
-
-            Console.WriteLine("Expected: ");
-            Console.WriteLine("  " + string.Join(Environment.NewLine + "  ", attributesThatDiffer.Select(ev => ev.Item1 + " = " + ev.Item3)));
-
-            Console.WriteLine("Got: ");
-            Console.WriteLine("  " + string.Join(Environment.NewLine + "  ", attributesThatDiffer.Select(ev => ev.Item1 + " = " + rule.GetTocEntryUnderTest.Invoke(objectUnderTest)[ev.Item1])));
+            Console.ReadLine();
         }
     }
 }

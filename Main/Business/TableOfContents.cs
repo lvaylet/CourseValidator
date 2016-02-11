@@ -13,7 +13,8 @@ namespace CourseValidator
         public TableOfContents(string Filename)
         {
             _XmlDoc = new XmlDocument();
-            _XmlDoc.Load(Filename); // for a file argument, LoadXml(Filename) for an XML string
+            //_XmlDoc.Load(Filename); // for a file argument
+            _XmlDoc.LoadXml(Filename); // for an XML string
 
             XmlNodeList topics = _XmlDoc.SelectNodes(Utils.XPATH_REQUEST_FOR_TOPICS);
             Topics = new List<Topic>();
