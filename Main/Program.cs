@@ -21,10 +21,7 @@ namespace CourseValidator
             //Debug.Assert(course.Toc.Books[0].Books.Count == 0, "First Book (i.e. Lab) should have no nested Books (i.e. no nested Labs)");
 
             // Reset Console textcolor to white
-            Console.ForegroundColor = ConsoleColor.White;
-
-            Console.WriteLine("===============================================================================");
-            Console.WriteLine("-= !! Bad TOCs !! =-");
+            //Console.ForegroundColor = ConsoleColor.White;
             
             // Rules for Table of Contents
             List<PredicateSpecification<TableOfContents>> TocRules = new List<PredicateSpecification<TableOfContents>>();
@@ -96,9 +93,6 @@ namespace CourseValidator
                 }
             }
 
-            Console.WriteLine("===============================================================================");
-            Console.WriteLine("-= !! Bad Books !! =-");
-
             // Rules for Books
             List<PredicateSpecification<Book>> BookRules = new List<PredicateSpecification<Book>>();
             BookRules.Add(new PredicateSpecification<Book>(
@@ -106,21 +100,21 @@ namespace CourseValidator
                 new TupleList<string, Func<string, string, bool>, string> {
                     { "Link", (string attribute, string value) => attribute.EndsWith(value), "/Description.htm" }
                 },
-                "A Book should link a to Description.htm Topic."));
+                "A Book should link a to properly configured Description.htm Topic."));
             BookRules.Add(new PredicateSpecification<Book>(
                 (b) => { return b.Topics.First(); },
                 new TupleList<string, Func<string, string, bool>, string> {
                     { "Title", string.Equals, "Overview" },
                     { "Link", (string attribute, string value) => attribute.EndsWith(value), "/Overview.htm" }
                 },
-                "The first Topic of each Lab should be an Overview."));
+                "The first Topic of each Lab should be a properly configured Overview."));
             BookRules.Add(new PredicateSpecification<Book>(
                 (b) => { return b.Topics.Last(); },
                 new TupleList<string, Func<string, string, bool>, string> {
                     { "Title", string.Equals, "Wrap-Up" },
                     { "Link", (string attribute, string value) => attribute.EndsWith(value), "/Wrap-Up.htm" }
                 },
-               "The last Topic of each Lab should be a Wrap-Up."));
+               "The last Topic of each Lab should be a properly configured Wrap-Up."));
 
             // Apply each rule sequentially and display error message if necessary
             foreach (var r in BookRules)
@@ -132,7 +126,7 @@ namespace CourseValidator
                 }
             }
 
-            Console.ReadLine();
+            // Console.ReadLine();
         }
 
         private static void DisplayDebugInformation<T>(PredicateSpecification<T> rule, T objectUnderTest)
