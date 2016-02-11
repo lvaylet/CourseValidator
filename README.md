@@ -1,2 +1,2 @@
 # CourseValidator
-Checks and enforces rules on Course architectures
+Checks and enforces rules on Courses architecture
