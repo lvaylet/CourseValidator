@@ -5,7 +5,8 @@ namespace CourseValidator
 {
     public class TocEntry
     {
-        public XmlAttributeCollection Attributes;
+        protected XmlAttributeCollection Attributes;
+        protected XmlDocument XmlDoc;
 
         // Overload index operator to enable Topic["Title"] instead of Topic.Attributes["Title"].Value
         public string this[string key]
@@ -21,7 +22,6 @@ namespace CourseValidator
                     // The requested Attribute does not exist
                     return "<Missing>";
                 }
-                    
             }
         }
     }

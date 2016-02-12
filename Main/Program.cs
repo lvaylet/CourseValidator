@@ -11,9 +11,12 @@ namespace CourseValidator
     {
         static void Main(string[] args)
         {
-            // Create a Course from the provided or a local Table of Contents file (*.fltoc)
-            //Course course = new Course(args.Length == 1 ? args[0] : Properties.Resources.Lab_Guide_EN);
+            // Create a Course from a TOC filename provided as an argument (release mode) or a local Table of Contents file (debug mode)
+#if DEBUG
             Course course = new Course(Properties.Resources.Lab_Guide_EN);
+#else
+            Course course = new Course(args[0]);
+#endif
 
             // Some assertions about this specific Course
             //Debug.Assert(course.Toc.Topics.Count == 4, "TOC should have 4 top-level Topics.");
@@ -130,7 +133,9 @@ namespace CourseValidator
                 }
             }
 
+#if DEBUG
             Console.ReadLine();
+#endif
         }
     }
 }
