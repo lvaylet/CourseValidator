@@ -26,6 +26,9 @@ namespace CourseValidator
 
             // Rules for Table of Contents
             List<Specification<TableOfContents>> TocRules = new List<Specification<TableOfContents>>();
+            TocRules.Add(new PredicateSpecification<TableOfContents>(
+                (t) => { return t.Topics.Count == 4; }, 
+                "A TOC should have only 4 Topics: Title, Copyright, Welcome, Contents"));
             TocRules.Add(new ByAttributesSpecification<TableOfContents>(
                 (t) => { return t.Topics[0]; },
                 new TupleList<string, Func<string, string, bool>, string> {

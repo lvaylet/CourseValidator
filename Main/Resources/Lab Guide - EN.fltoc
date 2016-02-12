@@ -44,6 +44,9 @@
     ChapterNumberReset="continue"
     PageType="firstright" />
   <TocEntry
+    Title="Dummy Topic"
+    Link="/Content/Print Only Topics/Welcome.htm" />
+  <TocEntry
     Title="Getting Started"
     BreakType="chapter"
     StartSection="false"
