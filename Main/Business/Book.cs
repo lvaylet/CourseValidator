@@ -8,8 +8,10 @@ namespace CourseValidator
         public readonly List<Book> Books; // Books can be nested in Table of Contents
         public readonly List<Topic> Topics;
 
-        public Book(XmlNode xmlNode)
+        public Book(XmlNode xmlNode, Course c)
         {
+            _course = c; // Store a reference to the Couse this Topic is attached to
+
             Attributes = xmlNode.Attributes;
 
             // Book-level Topics
@@ -17,7 +19,7 @@ namespace CourseValidator
             Topics = new List<Topic>();
             foreach (XmlNode t in topics)
             {
-                Topics.Add(new Topic(t));
+                Topics.Add(new Topic(t, c));
             }
 
             // Nested Books in addition to Topics?
@@ -25,7 +27,7 @@ namespace CourseValidator
             Books = new List<Book>();
             foreach (XmlNode b in books)
             {
-                Books.Add(new Book(b));
+                Books.Add(new Book(b, c));
             }
         }
     }

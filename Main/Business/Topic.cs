@@ -5,14 +5,20 @@ namespace CourseValidator
 {
     public class Topic : TocEntry
     {
-        public Topic(XmlNode xmlNode)
+        private readonly string _absolutePath; // Full absolute path to Topic file
+
+        public Topic(XmlNode xmlNode, Course c)
         {
+            _course = c; // Store a reference to the Couse this Topic is attached to
+
             Attributes = xmlNode.Attributes;
+
+            _absolutePath = Path.GetFullPath(Path.Combine(_course.ProjectRoot, this["Link"].Substring(1)));
+
             XmlDoc = new XmlDocument();
-            // TODO this["Link"] is a relative path ("/Content/EN/..."). How to add information about project root without coupling a Topic to a Course?
-            if (File.Exists(this["Link"]))
+            if (File.Exists(_absolutePath))
             {
-                XmlDoc.Load(this["Link"]);
+                XmlDoc.Load(_absolutePath);
             }
         }
     }

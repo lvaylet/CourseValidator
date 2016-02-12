@@ -7,6 +7,7 @@ namespace CourseValidator
     {
         protected XmlAttributeCollection Attributes;
         protected XmlDocument XmlDoc;
+        protected Course _course; // Reference to the Course the TopicEntry is attached to. Makes it easier to get the value of ProjectRoot.
 
         // Overload index operator to enable Topic["Title"] instead of Topic.Attributes["Title"].Value
         public string this[string key]

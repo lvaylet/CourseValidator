@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
-// TODO Add a different kind of rule, based on a simple predicate, for enforcing the number of Topics in a TOC
-// TODO Integrate DisplayDebugInformation in the Specification?
 namespace CourseValidator
 {
     class Program
@@ -13,9 +10,9 @@ namespace CourseValidator
         {
             // Create a Course from a TOC filename provided as an argument (release mode) or a local Table of Contents file (debug mode)
 #if DEBUG
-            Course course = new Course(Properties.Resources.Lab_Guide_EN);
+            Course course = new Course(@"C:\Users\lvaylet\Documents\My Projects\di-basics", Properties.Resources.Lab_Guide_EN);
 #else
-            Course course = new Course(args[0]);
+            Course course = new Course(args[0], args[1]);
 #endif
 
             // Some assertions about this specific Course
