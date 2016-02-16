@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 
+//TODO Add a List<Error> field to Books to keep track of errors, then write an XML file with all errors at the end (grouped by Books)?
+
 namespace CourseValidator
 {
     class Program
@@ -105,7 +107,7 @@ namespace CourseValidator
                 new TupleList<string, Func<string, string, bool>, string> {
                     { "Link", (string attribute, string value) => attribute.EndsWith(value), "/Description.htm" }
                 },
-                "A Book should link a to properly configured Description.htm Topic."));
+                "A Book should link to a properly configured Description.htm Topic."));
             BookRules.Add(new ByAttributesSpecification<Book>(
                 (b) => { return b.Topics.First(); },
                 new TupleList<string, Func<string, string, bool>, string> {
@@ -122,17 +124,37 @@ namespace CourseValidator
                "The last Topic of each Lab should be a properly configured Wrap-Up."));
             BookRules.Add(new PredicateSpecification<Book>(
                 (b) => { return b.Topics.First().XmlDocumentHasThisNode("//MadCap:snippetBlock[@src='../../Resources/Snippets/TinCanWrapperForOverview.flsnp']"); },
-               "The Overview should contain a link to the TinCanWrapperForOverview snippet."));
+               "The Overview Topic should contain a link to the TinCanWrapperForOverview snippet."));
+            BookRules.Add(new PredicateSpecification<Book>(
+                (b) => { return b.Topics.Last().XmlDocumentHasThisNode("//MadCap:snippetBlock[@src='../../Resources/Snippets/TinCanWrapperForWrapUp.flsnp']"); },
+               "The Wrap-Up Topic should contain a link to the TinCanWrapperForWrapUp snippet."));
+
+            //// Apply each rule sequentially and display error message if necessary
+            //// This variant loops over the rules and filters books accordingly, so only bad books are displayed but one book can be displayed several times with different rule violations.
+            //foreach (var r in BookRules)
+            //{
+            //    var badBooksForCurrentRule = course.Toc.Books.FindAll(item => !r.IsSatisfiedBy(item)); // Use Specification.Not ?
+            //    foreach (var b in badBooksForCurrentRule)
+            //    {
+            //        Console.WriteLine("-------------------------------------------------------------------------------");
+            //        Console.WriteLine(b.GetTitle());
+            //        r.DisplayDebugInformation(b);
+            //    }
+            //}
 
             // Apply each rule sequentially and display error message if necessary
-            foreach (var r in BookRules)
+            // This variant loops over the books and enforces rules all at once. All the broken rules for a given Book are displayed at the same time.
+            foreach (var b in course.Toc.Books)
             {
-                var badBooksForCurrentRule = course.Toc.Books.FindAll(item => !r.IsSatisfiedBy(item)); // Use Specification.Not ?
-                foreach (var b in badBooksForCurrentRule)
+                Console.WriteLine("-------------------------------------------------------------------------------");
+                Console.WriteLine("- " + b.GetTitle() + " -");
+                Console.WriteLine("-------------------------------------------------------------------------------");
+                foreach (var r in BookRules)
                 {
-                    Console.WriteLine("-------------------------------------------------------------------------------");
-                    Console.WriteLine(b.GetTitle());
-                    r.DisplayDebugInformation(b);
+                    if (!r.IsSatisfiedBy(b))
+                    {
+                        r.DisplayDebugInformation(b);
+                    }
                 }
             }
 
