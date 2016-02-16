@@ -21,5 +21,13 @@ namespace CourseValidator
                 XmlDoc.Load(_absolutePath);
             }
         }
+
+        public bool XmlDocumentHasThisNode(string xPathRequest)
+        {
+            XmlNamespaceManager nsmgr = new XmlNamespaceManager(this.XmlDoc.NameTable);
+            nsmgr.AddNamespace("MadCap", "http://www.madcapsoftware.com/Schemas/MadCap.xsd");
+            // Return true if a node matching the XPath request was found
+            return this.XmlDoc.SelectSingleNode(xPathRequest, nsmgr) != null;
+        }
     }
 }

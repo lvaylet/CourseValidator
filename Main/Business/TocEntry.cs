@@ -25,5 +25,10 @@ namespace CourseValidator
                 }
             }
         }
+
+        public string GetTitle()
+        {
+            return this["Title"];
+        }
     }
 }

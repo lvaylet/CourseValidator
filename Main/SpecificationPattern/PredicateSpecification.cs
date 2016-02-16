@@ -17,8 +17,6 @@ namespace CourseValidator
 
         public override void DisplayDebugInformation(T instance)
         {
-            Console.WriteLine("-------------------------------------------------------------------------------");
-
             Console.WriteLine(ErrorMessage);
         }
 

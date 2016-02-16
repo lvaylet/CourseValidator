@@ -93,12 +93,13 @@ namespace CourseValidator
             {
                 if (!r.IsSatisfiedBy(course.Toc))
                 {
+                    Console.WriteLine("-------------------------------------------------------------------------------");
                     r.DisplayDebugInformation(course.Toc);
                 }
             }
 
             // Rules for Books
-            List<ByAttributesSpecification<Book>> BookRules = new List<ByAttributesSpecification<Book>>();
+            List<Specification<Book>> BookRules = new List<Specification<Book>>();
             BookRules.Add(new ByAttributesSpecification<Book>(
                 (b) => { return b; },
                 new TupleList<string, Func<string, string, bool>, string> {
@@ -119,6 +120,9 @@ namespace CourseValidator
                     { "Link", (string attribute, string value) => attribute.EndsWith(value), "/Wrap-Up.htm" }
                 },
                "The last Topic of each Lab should be a properly configured Wrap-Up."));
+            BookRules.Add(new PredicateSpecification<Book>(
+                (b) => { return b.Topics.First().XmlDocumentHasThisNode("//MadCap:snippetBlock[@src='../../Resources/Snippets/TinCanWrapperForOverview.flsnp']"); },
+               "The Overview should contain a link to the TinCanWrapperForOverview snippet."));
 
             // Apply each rule sequentially and display error message if necessary
             foreach (var r in BookRules)
@@ -126,6 +130,8 @@ namespace CourseValidator
                 var badBooksForCurrentRule = course.Toc.Books.FindAll(item => !r.IsSatisfiedBy(item)); // Use Specification.Not ?
                 foreach (var b in badBooksForCurrentRule)
                 {
+                    Console.WriteLine("-------------------------------------------------------------------------------");
+                    Console.WriteLine(b.GetTitle());
                     r.DisplayDebugInformation(b);
                 }
             }

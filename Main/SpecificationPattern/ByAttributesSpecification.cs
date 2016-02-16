@@ -26,8 +26,6 @@ namespace CourseValidator
 
         public override void DisplayDebugInformation(T instance)
         {
-            Console.WriteLine("-------------------------------------------------------------------------------");
-
             Console.WriteLine(ErrorMessage);
 
             // Only display the attributes values that differ
