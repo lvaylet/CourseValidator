@@ -5,8 +5,14 @@ namespace CourseValidator
 {
     public class Book : TocEntry
     {
-        public readonly List<Book> Books; // Books can be nested in Table of Contents
-        public readonly List<Topic> Topics;
+        public List<Book> Books { get; set; } // Books can be nested in Table of Contents
+        public List<Topic> Topics { get; set; }
+
+        public Book()
+        {
+            Books = null;
+            Topics = null;
+        }
 
         public Book(XmlNode xmlNode, Course c)
         {

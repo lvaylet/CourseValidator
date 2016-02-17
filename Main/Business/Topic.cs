@@ -7,6 +7,11 @@ namespace CourseValidator
     {
         private readonly string _absolutePath; // Full absolute path to Topic file
 
+        public Topic()
+        {
+            _absolutePath = "";
+        }
+
         public Topic(XmlNode xmlNode, Course c)
         {
             _course = c; // Store a reference to the Couse this Topic is attached to

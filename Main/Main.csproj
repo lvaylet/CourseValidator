@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Business\Book.cs" />
     <Compile Include="Business\Course.cs" />
+    <Compile Include="Business\Courses.cs" />
     <Compile Include="SpecificationPattern\ByAttributesSpecification.cs" />
     <Compile Include="SpecificationPattern\EmptySpecification.cs" />
     <Compile Include="SpecificationPattern\ISpecification.cs" />

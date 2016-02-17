@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Xml.Serialization;
 
 //TODO Add a List<Error> field to Books to keep track of errors, then write an XML file with all errors at the end (grouped by Books)?
 
@@ -10,12 +12,16 @@ namespace CourseValidator
     {
         static void Main(string[] args)
         {
+            Courses courses = new Courses();
+
             // Create a Course from a TOC filename provided as an argument (release mode) or a local Table of Contents file (debug mode)
 #if DEBUG
-            Course course = new Course(@"C:\Users\lvaylet\Documents\My Projects\di-basics", Properties.Resources.Lab_Guide_EN);
+            Course course = new Course("di-basics", @"C:\Users\lvaylet\Documents\My Projects\di-basics", Properties.Resources.Lab_Guide_EN);
 #else
             Course course = new Course(args[0], args[1]);
 #endif
+
+            courses.Add(course);
 
             // Some assertions about this specific Course
             //Debug.Assert(course.Toc.Topics.Count == 4, "TOC should have 4 top-level Topics.");
@@ -158,8 +164,15 @@ namespace CourseValidator
                 }
             }
 
+            // Serialize Course object to XML
+            XmlSerializer serializer = new XmlSerializer(typeof(Courses));
+            using (TextWriter writer = new StreamWriter(@"C:\Temp\validator.xml"))
+            {
+                serializer.Serialize(writer, courses);
+            }
+
 #if DEBUG
-            Console.ReadLine();
+                Console.ReadLine();
 #endif
         }
     }

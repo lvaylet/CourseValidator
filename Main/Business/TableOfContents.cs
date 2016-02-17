@@ -7,10 +7,18 @@ namespace CourseValidator
     {
         private readonly XmlDocument XmlDoc;
 
-        public readonly List<Topic> Topics;
-        public readonly List<Book> Books;
+        public List<Topic> Topics { get; set; }
+        public List<Book> Books { get; set; }
 
         private readonly Course _course; // Store a reference to the Couse this TableOfContents is attached to
+
+        public TableOfContents()
+        {
+            XmlDoc = null;
+            Topics = null;
+            Books = null;
+            _course = null;
+        }
 
         public TableOfContents(string Filename, Course c)
         {
